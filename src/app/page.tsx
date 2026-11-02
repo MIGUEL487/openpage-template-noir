@@ -2,18 +2,20 @@
 
 import React, { useState } from 'react';
 import { Navbar } from '@/components/ui/Navbar';
+import { AtmosphericClothCanvas } from '@/components/canvas/AtmosphericClothCanvas';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { ManifestoSection } from '@/components/sections/ManifestoSection';
-import { FloatingGarmentSection } from '@/components/sections/FloatingGarmentSection';
-import { PillarsSection } from '@/components/sections/PillarsSection';
+import { RunwayCampaignSection } from '@/components/sections/RunwayCampaignSection';
 import { LookbookSection } from '@/components/sections/LookbookSection';
+import { TextileArchitectureSection } from '@/components/sections/TextileArchitectureSection';
 import { CatalogSection } from '@/components/sections/CatalogSection';
+import { PillarsSection } from '@/components/sections/PillarsSection';
 import { BrandStorySection } from '@/components/sections/BrandStorySection';
 import { FaqSection } from '@/components/sections/FaqSection';
 import { WhatsAppCtaSection } from '@/components/sections/WhatsAppCtaSection';
 import { Footer } from '@/components/sections/Footer';
 import { WhatsAppModal } from '@/components/ui/WhatsAppModal';
-import { Product, ProductColor, PRODUCTS } from '@/data/products';
+import { Product, ProductColor } from '@/data/products';
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -22,12 +24,12 @@ export default function Home() {
   const [selectedSize, setSelectedSize] = useState<string | undefined>(undefined);
   const [customTopic, setCustomTopic] = useState<string | undefined>(undefined);
 
-  // Opens WhatsApp modal for general atelier consultation
+  // Opens WhatsApp modal for concierge consultation
   const handleOpenGeneralWhatsApp = () => {
     setSelectedProduct(null);
     setSelectedColor(undefined);
     setSelectedSize(undefined);
-    setCustomTopic('Atendimento Geral & Alfaiataria Sob Medida');
+    setCustomTopic('Atendimento Geral & Alfaiataria Privada de Tricô');
     setModalOpen(true);
   };
 
@@ -47,43 +49,54 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-noir-950 text-noir-100 flex flex-col selection:bg-noir-carmine selection:text-white">
-      {/* Detached Floating Island Navbar */}
+      {/* 
+        NOVA DIRETRIZ 3D:
+        O Three.js atua agora como uma camada atmosférica difusa, viva e em baixa opacidade (28%),
+        posicionada no plano de fundo. Não compete com a fotografia e a tipografia, conferindo profundidade
+        cinematográfica e reagindo suavemente ao scroll.
+      */}
+      <AtmosphericClothCanvas opacity={0.28} />
+
+      {/* Floating Island Navbar */}
       <Navbar onOpenWhatsApp={handleOpenGeneralWhatsApp} />
 
-      <main className="flex-1 w-full flex flex-col">
-        {/* 1. Fullscreen Cinematic Hero with 3D Garment */}
+      <main className="relative z-10 flex-1 w-full flex flex-col">
+        {/* 1. Hero Editorial de Campanha */}
         <HeroSection onOpenWhatsApp={handleOpenGeneralWhatsApp} />
 
-        {/* 2. Provocative Editorial Manifesto */}
+        {/* 2. Manifesto do Fio e do Peso */}
         <ManifestoSection />
 
-        {/* 3. The Floating Garment (Interactive 3D Experience with camera presets & weave mode) */}
-        <FloatingGarmentSection
+        {/* 3. Campanha Destaque (Sobretudo Monolítico Gauge Zero) */}
+        <RunwayCampaignSection
           onSelectProductForWhatsApp={handleSelectProductForWhatsApp}
         />
 
-        {/* 4. Three Construction Pillars */}
-        <PillarsSection />
-
-        {/* 5. Asymmetric Avant-Garde Lookbook with Parallax */}
+        {/* 4. Lookbook Editorial com Parallax */}
         <LookbookSection />
 
-        {/* 6. Interactive Knitwear Catalog + Color/Size selectors */}
+        {/* 5. Anatomia da Matéria & Profundidade 3D Têxtil */}
+        <TextileArchitectureSection />
+
+        {/* 6. Catálogo de Malhas + Seletores e Consulta */}
         <CatalogSection
           onSelectProductForWhatsApp={handleSelectProductForWhatsApp}
         />
 
-        {/* 7. Brand Story (A Forja do Fio - 1952 Looms) */}
+        {/* 7. Três Leis da Fiação */}
+        <PillarsSection />
+
+        {/* 8. História da Marca (Teares de 1952) */}
         <BrandStorySection />
 
-        {/* 8. Technical Questions & FAQ */}
+        {/* 9. Perguntas Frequentes & Cuidados */}
         <FaqSection />
 
-        {/* 9. Master WhatsApp Call-to-Action */}
+        {/* 10. Master WhatsApp CTA Concierge */}
         <WhatsAppCtaSection onOpenWhatsApp={handleOpenGeneralWhatsApp} />
       </main>
 
-      {/* 10. Premium Footer with OpenPage Demo Badging */}
+      {/* 11. Rodapé Premium */}
       <Footer />
 
       {/* Central WhatsApp Preview & Inquiry Modal */}

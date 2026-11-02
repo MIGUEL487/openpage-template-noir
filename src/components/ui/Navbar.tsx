@@ -23,9 +23,9 @@ export function Navbar({ onOpenWhatsApp }: NavbarProps) {
 
   const navLinks = [
     { label: 'Manifesto', href: '#manifesto' },
-    { label: 'Peça 3D', href: '#peca-3d' },
-    { label: 'Pilares', href: '#pilares' },
+    { label: 'Campanha', href: '#campanha' },
     { label: 'Lookbook', href: '#lookbook' },
+    { label: 'Matéria', href: '#materia' },
     { label: 'Catálogo', href: '#catalogo' },
     { label: 'Ateliê', href: '#atelie' },
   ];
@@ -42,10 +42,10 @@ export function Navbar({ onOpenWhatsApp }: NavbarProps) {
         <nav
           className={`pointer-events-auto flex items-center justify-between gap-4 sm:gap-8 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border transition-all duration-500 ${
             scrolled
-              ? 'bg-noir-950/85 backdrop-blur-2xl border-white/15 shadow-2xl shadow-black/80'
-              : 'bg-noir-900/40 backdrop-blur-md border-white/10'
+              ? 'bg-noir-950/90 backdrop-blur-2xl border-white/15 shadow-2xl shadow-black/90'
+              : 'bg-noir-950/40 backdrop-blur-md border-white/10'
           }`}
-          aria-label="Navegação principal"
+          aria-label="Navegação principal da marca"
         >
           {/* Brand Monogram */}
           <a
@@ -54,12 +54,12 @@ export function Navbar({ onOpenWhatsApp }: NavbarProps) {
             className="group flex items-center gap-2 text-noir-100 focus:outline-none"
             aria-label="Voltar ao início de NOIR KNIT"
           >
-            <span className="font-display font-bold text-base sm:text-lg tracking-widest text-noir-100 group-hover:text-noir-carmine transition-colors">
+            <span className="font-display font-medium text-base sm:text-lg tracking-[0.2em] text-noir-100 group-hover:text-noir-carmine transition-colors">
               NOIR
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-noir-carmine" />
             <span className="hidden md:inline font-mono text-[9px] uppercase tracking-widest text-noir-400">
-              Knitwear Lab
+              Knitwear
             </span>
           </a>
 
@@ -82,9 +82,9 @@ export function Navbar({ onOpenWhatsApp }: NavbarProps) {
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={onOpenWhatsApp}
-              className="group flex items-center gap-2 pl-3 sm:pl-4 pr-1.5 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/10 text-xs font-mono tracking-wider text-noir-100 transition-all duration-300 active:scale-95"
+              className="group flex items-center gap-2 pl-3 sm:pl-4 pr-1.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.09] border border-white/10 text-xs font-mono tracking-wider text-noir-100 transition-all duration-300 active:scale-95"
             >
-              <span className="hidden sm:inline">WhatsApp</span>
+              <span className="hidden sm:inline">WhatsApp Concierge</span>
               <span className="w-6 h-6 rounded-full bg-noir-carmine group-hover:bg-noir-carmine-hover flex items-center justify-center transition-colors">
                 <ArrowUpRight className="w-3.5 h-3.5 text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </span>
@@ -133,7 +133,7 @@ export function Navbar({ onOpenWhatsApp }: NavbarProps) {
               <span>Consultar Alfaiate via WhatsApp</span>
             </button>
             <p className="text-[11px] font-mono text-center text-noir-500">
-              NOIR KNIT · OpenPage Experimental Knitwear
+              NOIR KNIT · Haute Knitwear & Ateliê
             </p>
           </div>
         </div>
